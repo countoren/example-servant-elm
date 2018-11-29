@@ -51,6 +51,8 @@ data DB = DB (MVar (Map ItemId String))
 debug :: DB -> IO ()
 debug (DB mvar) = readMVar mvar >>= print
 
+new = mkDB
+
 mkDB :: IO DB
 mkDB = DB <$> newMVar empty
 
